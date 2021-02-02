@@ -178,7 +178,7 @@ class QueryIndex{
             // cout<<"inside the get_query\n";
             vector<int> ans;
             if(table.find(key)!=table.end()){
-                map<int,vector<int>>:: iterator itr;
+                unordered_map<int,vector<int>>:: iterator itr;
                 for(itr=table[key].begin();itr!=table[key].end();itr++){
                     ans.push_back(itr->first);
                 }
