@@ -14,8 +14,8 @@ using namespace std;
       return id;
     }
     //to convert the page_word.txt file into a map
-  map<long int,long int> get_page_word(){
-      map<long int,long int> page_word;
+  unordered_map<long int,long int> get_page_word(){
+unordered_mapmap<long int,long int> page_word;
       //cout<<"inside the get_page\n";
       fstream f;
       f.open("page_words.txt");
@@ -34,8 +34,8 @@ using namespace std;
       return page_word;
   }
   // to convert the index file into a map
-  map<string,map<int,vector<int>>> get_map(){
-      map<string,map<int,vector<int>>> table;
+  unordered_map<string,unordered_map<int,vector<int>>> get_map(){
+      unordered_map<string,unordered_map<int,vector<int>>> table;
       //cout<<"inside the get_map\n";
       int line_number=0;
       fstream f;
