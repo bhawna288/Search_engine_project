@@ -3,8 +3,8 @@
 using namespace std;
 class CreateIndex{
     //to store the key(string) and in which document it present  and at what position.
-    map<string,map<int,vector<int>>> table;
-    map<int,int> page_word;
+    unordered_map<string,unordered_map<int,vector<int>>> table;
+    unordered_map<int,int> page_word;
     int  word_number=0;
     public:
       //to find the length od the string
@@ -93,9 +93,9 @@ class CreateIndex{
           return line;
       }
       void map_element(){
-          map<string,map<int,vector<int>>>::iterator itr;
+          unordered_map<string,unordered_map<int,vector<int>>>::iterator itr;
           for(itr=table.begin();itr!=table.end();itr++){
-              map<int,vector<int>>::iterator itr1;
+              unordered_map<int,vector<int>>::iterator itr1;
               cout<<itr->first<<"|";
               for(itr1=itr->second.begin();itr1!=itr->second.end();itr1++){
                   cout<<itr1->first<<":";
@@ -115,9 +115,9 @@ class CreateIndex{
           fstream  f;
           f.open("index.txt",ios::out);
           int  u=table.size();
-          map<string,map<int,vector<int>>>::iterator itr;
+          unordered_map<string,unordered_map<int,vector<int>>>::iterator itr;
           for(itr=table.begin();itr!=table.end();itr++){
-              map<int,vector<int>>::iterator itr1;
+              unordered_map<int,vector<int>>::iterator itr1;
               string x=itr->first;
               f<<x<<"|";
               for(itr1=itr->second.begin();itr1!=itr->second.end();itr1++){
@@ -135,7 +135,7 @@ class CreateIndex{
           f.open("page_words.txt",ios::out);
           // int  u=page_word.size();
           //cout<<"map size "<<page_word.size()<<endl;
-          map<int,int>::iterator itr100;
+          unordered_map<int,int>::iterator itr100;
           for(itr100=page_word.begin();itr100!=page_word.end();++itr100){
               f<<itr100->first<<":"<<itr100->second<<endl;
           }
@@ -154,7 +154,7 @@ class CreateIndex{
               if(i!=j){
                   string key=line.substr(i,j-i);
                   if(table.find(key)==table.end()){
-                      map<int,vector<int>> ans;
+                      unordered_map<int,vector<int>> ans;
                       vector<int> line_vec;
                       line_vec.push_back(word_number++);
                       ans[id]=line_vec;
