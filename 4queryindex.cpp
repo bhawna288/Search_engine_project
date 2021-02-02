@@ -4,8 +4,8 @@
 using namespace std;
 class QueryIndex{
     string line;
-    map<string,map<int,vector<int>>> table=get_map();
-    map<long int,long int> page_word=get_page_word();
+    unordered_map<string,unordered_map<int,vector<int>>> table=get_map();
+    unordered_map<long int,long int> page_word=get_page_word();
     public:
         int length(string &line){
             int i;
@@ -61,9 +61,9 @@ class QueryIndex{
         void map_element(){
             //  cout<<"inside the map_element\n";
             cout<<"map_element\n";
-            map<string,map<int,vector<int>>>::iterator itr;
+            unordered_map<string,unordered_map<int,vector<int>>>::iterator itr;
             for(itr=table.begin();itr!=table.end();itr++){
-                map<int,vector<int>>::iterator itr1;
+                unordered_map<int,vector<int>>::iterator itr1;
                 cout<<itr->first<<"|";
                 for(itr1=itr->second.begin();itr1!=itr->second.end();itr1++){
                     cout<<itr1->first<<":";
